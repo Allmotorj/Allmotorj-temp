@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flights Index</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav>
+      <a href="/tickets/new" <%- title === 'Add Ticket' ? 'class="active"' : '' %>>BUY TICKETS</a>
+      <a href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>>ADD FLIGHT</a>
+      <a href="/flights" <%- title === 'All Flights' ? 'class="active"' : '' %>>ALL FLIGHTS</a>
+    </nav>
+    <h1>Flights</h1>
+    <table>
+        <thead>
+          <tr>
+            <th>Airline</th>
+            <th>Airport</th>
+            <th>FlightNo:</th>
+            <th>Departs:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% flights.forEach( (m) => { %>
+            <tr>
+              <td><%= m.airline %></td>
+              <td><%= m.airport %></td>
+              <td><%= m.flightNo %></td>
+              <td><%= m.departs %></td>
+              <td><a href="/flights/<%= m._id %>">DETAILS</a></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+  </body>
+</html>

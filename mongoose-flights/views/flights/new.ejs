@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Flights</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav>
+      <a href="/tickets/new" <%- title === 'Add Ticket' ? 'class="active"' : '' %>>BUY TICKETS</a>
+      <a href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>>ADD FLIGHT</a>
+      <a href="/flights" <%- title === 'All Flights' ? 'class="active"' : '' %>>ALL FLIGHTS</a>
+    </nav>
+    <h2>Enter a Flight</h2>
+    <form action="/flights" method="POST"> 
+    <label>Flight Number:
+      <input type="text" name="flightNo">
+    </label><br>
+    <label>Airline
+      <select name="airline">
+        <option value="American">American</option>
+        <option value="Southwest">Southwest</option>
+        <option value="United">United</option>
+      </select>
+    </label><br>
+    <label>Airport
+        <select name="airport">
+          <option value="DEN">DEN</option>
+          <option value="AUS">AUS</option>
+          <option value="DFW">DFW</option>
+          <option value="SAN">SAN</option>
+          <option value="LAX">LAX</option>
+        </select>
+      </label><br>
+    <label>Departs
+      <input type="datetime-local" name="departs">
+    </label><br>
+    <input type="submit" value="Add Flight">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Flights</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <nav>
+        <a href="/tickets/new" <%- title === 'Add Ticket' ? 'class="active"' : '' %>>BUY TICKETS</a>
+        <a href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>>ADD FLIGHT</a>
+        <a href="/flights" <%- title === 'All Flights' ? 'class="active"' : '' %>>ALL FLIGHTS</a>
+    </nav>
+
+<p>Please select seats 'A1' thru 'F99' 
+</p>
+
+<form id="add-performer-form" action="/tickets" method="POST">
+  
+    <select name="flight" >
+      <% flights.forEach(p => { %>
+        <option value="<%=p._id%>"><%= p.flightNo %></option>
+      <% }) %>
+    </select>
+ 
+
+  <label>Destination:</label>
+  <input type="text" name="name">
+  <label>Seat:</label>
+  <input name="seat" required pattern="[A-F][1-9]\d?">
+  <input type="submit" value="Buy Ticket">
+</form>
+</main>
+</body>
+</html>
